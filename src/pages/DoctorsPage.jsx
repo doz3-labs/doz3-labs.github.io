@@ -32,7 +32,7 @@ function DoctorsPage() {
         <p className="text-slate-600 max-w-2xl">
           Reduce cognitive load while increasing patient safety.{" "}
           <DozWordmark className="text-xs font-semibold text-doz-blue align-baseline" />{" "}
-          turns your prescriptions into pre-sorted, time-based pouches that patients can&apos;t
+          turns your prescriptions into pre sorted, time based pouches that patients can&apos;t
           get wrong.
         </p>
       </section>
