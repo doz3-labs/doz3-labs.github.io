@@ -29,7 +29,7 @@ jobs:
       - name: Install
         run: npm ci
 
-      # User/org Pages (repo doz3-labs.github.io) → base "/". Project Pages → base "/REPO_NAME/"
+      # User/org Pages (doz3-labs.github.io) → base "/". Static host needs correct base or assets 404 → white screen.
       - name: Set base path
         id: base
         run: |
@@ -38,11 +38,16 @@ jobs:
           else
             echo "path=/${{ github.event.repository.name }}/" >> $GITHUB_OUTPUT
           fi
+          cat $GITHUB_OUTPUT
 
       - name: Build
         run: npm run build
         env:
           VITE_BASE: ${{ steps.base.outputs.path }}
+
+      # SPA fallback: serve index.html for any path so refreshes/direct links work
+      - name: Add 404 fallback
+        run: cp dist/index.html dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@3

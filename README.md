@@ -1,6 +1,6 @@
 # DOZ3 App
 
-Vite + React site for DOZ3. Compatible with **GitHub Pages**.
+**Vite + React** (not Next.js). No `next.config` — use this repo’s Vite + GitHub Actions setup for deployment. Compatible with **GitHub Pages**.
 
 ## GitHub Pages deployment
 
