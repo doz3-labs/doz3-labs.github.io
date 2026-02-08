@@ -65,7 +65,7 @@ function Hero() {
             variants={fadeUp}
             className="text-md md:text-xl font-bold text-slate-600 pt-6"
           >
-            Coming soon in India.
+            Launching Soon in Bengaluru.
           </motion.p>
         </motion.div>
       </div>

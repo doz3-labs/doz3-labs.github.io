@@ -83,7 +83,7 @@ function ManifestoPage() {
             
             <div className="flex flex-col">
               <p className="text-sm font-bold text-slate-900">Harsh P</p>
-              <p className="text-xs text-slate-500 font-medium mb-2">Founder / CEO</p>
+              <p className="text-xs text-slate-500 font-medium mb-2">Founder / CEO / Product Engineer</p>
               
               {/* LINKEDIN BUTTON */}
               <a 
