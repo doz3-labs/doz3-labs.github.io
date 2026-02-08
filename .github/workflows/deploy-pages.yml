@@ -29,11 +29,20 @@ jobs:
       - name: Install
         run: npm ci
 
-      # Base path = repo name so assets load at https://user.github.io/REPO_NAME/
+      # User/org Pages (repo doz3-labs.github.io) → base "/". Project Pages → base "/REPO_NAME/"
+      - name: Set base path
+        id: base
+        run: |
+          if [ "${{ github.event.repository.name }}" = "${{ github.repository_owner }}.github.io" ]; then
+            echo "path=/" >> $GITHUB_OUTPUT
+          else
+            echo "path=/${{ github.event.repository.name }}/" >> $GITHUB_OUTPUT
+          fi
+
       - name: Build
         run: npm run build
         env:
-          VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_BASE: ${{ steps.base.outputs.path }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@3
