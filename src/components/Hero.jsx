@@ -22,14 +22,14 @@ function Hero() {
     <section className="relative min-h-[80vh] md:min-h-[90vh] overflow-hidden">
       {/* Background image */}
       <div
-        className="className="absolute inset-0 bg-cover bg-[85%_center] md:bg-center""
+        className="absolute inset-0 bg-cover bg-[85%_center] md:bg-center"
         style={{
           backgroundImage: "url(/hero.jpg)",
         }}
       />
 
-      {/* White gradient overlay on left 60% */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-[70%] md:w-[60%] bg-gradient-to-r from-white via-white/80 to-transparent" />
+      {/* White gradient overlay */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-[85%] md:w-[60%] bg-gradient-to-r from-white via-white/80 to-transparent" />
 
       <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-20 flex items-center">
         <motion.div
@@ -55,7 +55,7 @@ function Hero() {
 
           <motion.p
             variants={fadeUp}
-            className="text-base md:text-lg text-slate-700 leading-relaxed"
+            className="text-base md:text-lg text-slate-700 leading-relaxed max-w-md"
           >
             Doctors prescribe. We sort. You heal. The pre sorted dosage
             delivery system for India.
@@ -74,4 +74,3 @@ function Hero() {
 }
 
 export default Hero;
-
