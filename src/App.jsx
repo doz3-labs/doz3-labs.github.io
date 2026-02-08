@@ -9,7 +9,8 @@ import PatientsPage from "./pages/PatientsPage.jsx";
 import ManifestoPage from "./pages/ManifestoPage.jsx";
 import SafetyPage from "./pages/SafetyPage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
-import ComingSoonPage from "./pages/ComingSoonPage.jsx";
+import JoinPilotPage from "./pages/JoinPilot.jsx";
+import DemoPage from "./pages/DemoPage.jsx";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <Route path="/manifesto" element={<ManifestoPage />} />
           <Route path="/safety" element={<SafetyPage />} />
           <Route path="/careers" element={<CareersPage />} />
-          <Route path="/coming-soon" element={<ComingSoonPage />} />
+          <Route path="/join-pilot" element={<JoinPilotPage />} />
+          <Route path="/demo" element={<DemoPage />} />
         </Routes>
       </main>
       <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">

@@ -55,10 +55,10 @@ function Navbar() {
 
           <div className="flex items-center gap-2">
             <Link
-              to="/coming-soon"
+              to="/demo"
               className="px-4 py-2 rounded-full bg-doz-blue text-white text-sm font-medium shadow-md shadow-doz-blue/30 hover:bg-doz-teal hover:shadow-doz-teal/30 transition-colors transition-shadow"
             >
-              Coming Soon
+              Watch Demo
             </Link>
             {/* Three-dash animated menu button */}
             <motion.button

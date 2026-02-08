@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react"; // <--- Import the icon
 import DozWordmark from "./DozWordmark.jsx";
 
 const containerVariants = {
@@ -31,7 +32,7 @@ function Hero() {
       {/* White gradient overlay */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-[85%] md:w-[60%] bg-gradient-to-r from-white via-white/80 to-transparent" />
 
-      <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-20 flex items-center">
+      <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-20 flex items-center h-full">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -69,6 +70,27 @@ function Hero() {
           </motion.p>
         </motion.div>
       </div>
+
+      {/* --- SCROLL DOWN ARROW --- */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }} // The Bounce Animation
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <ChevronDown className="w-10 h-10 text-slate-400/80 drop-shadow-sm" />
+        </motion.div>
+      </motion.div>
+      {/* ------------------------- */}
+
     </section>
   );
 }
