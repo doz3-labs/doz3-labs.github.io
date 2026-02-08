@@ -60,7 +60,7 @@ function ComingSoonPage() {
             href="mailto:doz3labs@gmail.com"
             className="font-medium text-doz-blue underline underline-offset-2"
           >
-            help@dozelabs.com
+            doz3labs@gmail.com
           </a>{" "}
           to join the early access list.
         </p>
