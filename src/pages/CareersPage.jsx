@@ -67,10 +67,10 @@ function CareersPage() {
         <p className="text-sm md:text-base text-doz-blue font-medium">
           Email us at{" "}
           <a
-            href="mailto:founders@doz3-labs.com"
+            href="mailto:doz3labs@gmail.com"
             className="underline underline-offset-2"
           >
-            founders@doz3-labs.com
+            doz3labs@gmail.com
           </a>
           .
         </p>
