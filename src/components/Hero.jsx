@@ -22,7 +22,7 @@ function Hero() {
     <section className="relative min-h-[80vh] md:min-h-[90vh] overflow-hidden">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="className="absolute inset-0 bg-cover bg-[85%_center] md:bg-center""
         style={{
           backgroundImage: "url(/hero.jpg)",
         }}

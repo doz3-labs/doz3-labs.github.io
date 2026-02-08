@@ -19,14 +19,14 @@ function SafetyPage() {
             Data privacy
           </h2>
           <p>
-            We treat your medical history like production code: encrypted, audited,
-            and access controlled. Data is visible only to you and the clinicians
+            We treat your medical history like production code. encrypted, audited,
+            and access controlled. Data is visible only to you and the doctors
             you explicitly connect.
           </p>
           <p className="text-xs text-slate-500">
             {/* TODO: Update this copy with the exact frameworks you comply with. */}
             We are designing{" "}
-            <span className="font-bold">towards HIPAA/DISHA grade safeguards</span>{" "}
+            <span className="font-bold">towards HIPAA & DISHA grade safeguards</span>{" "}
             from day one.
           </p>
         </article>
