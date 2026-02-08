@@ -57,10 +57,10 @@ function ComingSoonPage() {
         <p className="text-xs text-slate-500">
           Or email{" "}
           <a
-            href="mailto:founders@doz3-labs.com"
+            href="mailto:doz3labs@gmail.com"
             className="font-medium text-doz-blue underline underline-offset-2"
           >
-            founders@doz3-labs.com
+            help@dozelabs.com
           </a>{" "}
           to join the early access list.
         </p>

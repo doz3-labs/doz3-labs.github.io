@@ -31,7 +31,7 @@ function PatientsPage() {
         </h1>
         <p className="text-slate-600 max-w-2xl">
           <DozWordmark className="text-xs font-semibold text-doz-blue align-baseline" />{" "}
-          turns complex prescriptions into simple, daily rituals with clear, pre-sorted medicine
+          turns complex prescriptions into simple, daily rituals with clear, pre sorted medicine
           pouches and proactive reminders.
         </p>
       </section>
