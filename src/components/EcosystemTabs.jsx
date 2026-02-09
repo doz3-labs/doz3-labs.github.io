@@ -22,16 +22,16 @@ function EcosystemTabs({ useGifs = false }) {
 
   const isDoctor = activeTab === "doctor";
   const isAdmin = activeTab === "admin";
-
   const isPhone = activeTab === "patient";
 
-  // Patient GIF is 760×1920 (portrait). Frame aspect matches so GIF fills inner box.
-  const isGifMode = useGifs;
+  // --- SIZES ---
+  // Patient = Standard Phone Size
+  // Doctor/Admin = Large Landscape Sizes
   const deviceSize = isPhone
-    ? { width: 260, height: 657, borderRadius: 26 } // 260 * (1920/760) ≈ 657
+    ? { width: 260, height: 657, borderRadius: 36 } 
     : isAdmin
-    ? { width: 560, height: 340, borderRadius: 12 }
-    : { width: 420, height: 320, borderRadius: 18 };
+    ? { width: 900, height: 550, borderRadius: 12 } 
+    : { width: 750, height: 520, borderRadius: 24 };
 
   const gradientClass = isDoctor
     ? "from-doz-blue via-sky-500 to-indigo-500"
@@ -43,16 +43,15 @@ function EcosystemTabs({ useGifs = false }) {
     activeTab === "doctor" ? Stethoscope : activeTab === "patient" ? User2 : ShieldCheck;
 
   const gifByTab = {
-    // Put your GIFs in /public/gifs and keep these paths.
-    // Example: public/gifs/patient.gif → /gifs/patient.gif
     patient: "/gifs/patient.gif",
     doctor: "/gifs/doctor.gif",
     admin: "/gifs/admin.gif",
   };
 
   return (
-    <section className="py-20 bg-doz-surface/40">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-20 bg-doz-surface/40 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        
         {/* Top segmented control */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex items-center rounded-full bg-white border border-slate-200 p-1 shadow-sm">
@@ -83,9 +82,9 @@ function EcosystemTabs({ useGifs = false }) {
         </div>
 
         {/* Center device mockup */}
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-8">
           <motion.div
-            className="relative border border-slate-200 bg-white shadow-xl shadow-slate-200/80 flex items-center justify-center overflow-hidden rounded-2xl"
+            className="relative border border-slate-200 bg-white shadow-2xl shadow-slate-300/50 flex items-center justify-center overflow-hidden"
             animate={{
               width: deviceSize.width,
               height: deviceSize.height,
@@ -93,35 +92,31 @@ function EcosystemTabs({ useGifs = false }) {
             }}
             transition={{
               type: "spring",
-              stiffness: 160,
-              damping: 22,
+              stiffness: 120,
+              damping: 20,
             }}
           >
-            {/* Bezel / shell details */}
-            {isPhone && (
-              <div className="absolute top-3 inset-x-20 h-5 rounded-full bg-slate-200" />
-            )}
-
+            {/* 2. Admin Laptop Top Bar (Only for Admin) */}
             {isAdmin && (
-              <>
-                {/* Laptop top bar */}
-                <div className="absolute top-0 inset-x-0 h-8 bg-slate-100 border-b border-slate-200 flex items-center px-4 gap-2">
-                  <div className="flex gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                  </div>
-                  <div className="ml-4 h-5 w-32 rounded bg-slate-200" />
+              <div className="absolute top-0 inset-x-0 h-8 bg-slate-50 border-b border-slate-200 flex items-center px-4 gap-2 z-20">
+                <div className="flex gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
                 </div>
-                {/* Laptop base */}
-                <div className="absolute -bottom-4 left-1/2 h-3 w-[80%] -translate-x-1/2 rounded-b-3xl bg-slate-300" />
-              </>
+                <div className="ml-4 h-5 w-48 rounded bg-white border border-slate-200 shadow-sm" />
+              </div>
             )}
 
-            {/* TODO: Replace these placeholders with Figma screenshots later. */}
+            {/* 3. iPad Notch (Only for Doctor) - ADDED HERE */}
+            {isDoctor && (
+                // Centered at top, grey color, rounded bottom corners
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 h-4 w-28 bg-slate-200 rounded-b-xl z-20 border-b border-x border-slate-300/50" />
+            )}
+
             <div
-              className={`relative rounded-2xl bg-gradient-to-br ${gradientClass} flex items-center justify-center ${
-                isAdmin ? "w-[94%] h-[82%] mt-6 mb-3" : "w-[94%] h-[94%]"
+              className={`relative bg-gradient-to-br ${gradientClass} flex items-center justify-center overflow-hidden ${
+                isAdmin ? "w-full h-full pt-8" : "w-full h-full"
               }`}
             >
               {useGifs ? (
@@ -130,21 +125,21 @@ function EcosystemTabs({ useGifs = false }) {
                     key={activeTab}
                     src={gifByTab[activeTab]}
                     alt={`${TAB_CONFIG[activeTab].label} UI preview`}
-                    className="h-full w-full object-cover rounded-2xl"
-                    initial={{ opacity: 0, scale: 0.985 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.99 }}
-                    transition={{ duration: 0.18 }}
+                    className="h-full w-full object-cover"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
                     draggable={false}
                   />
                 </AnimatePresence>
               ) : (
                 <div className="flex flex-col items-center gap-2 text-white">
-                  <div className="h-14 w-14 rounded-2xl bg-black/15 backdrop-blur flex items-center justify-center border border-white/40">
+                  <div className="h-14 w-14 rounded-2xl bg-black/10 backdrop-blur-md flex items-center justify-center border border-white/30">
                     <Icon className="h-7 w-7" />
                   </div>
-                  <span className="text-xs uppercase tracking-[0.18em] text-white/80">
-                    {TAB_CONFIG[activeTab].label} View
+                  <span className="text-sm font-semibold uppercase tracking-widest text-white/90">
+                    {TAB_CONFIG[activeTab].label} Interface
                   </span>
                 </div>
               )}
@@ -154,10 +149,10 @@ function EcosystemTabs({ useGifs = false }) {
           {/* Description text */}
           <motion.p
             key={activeTab}
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
-            className="text-center text-sm md:text-base text-slate-600 max-w-xl"
+            transition={{ duration: 0.3 }}
+            className="text-center text-lg font-medium text-slate-600 max-w-2xl"
           >
             {TAB_CONFIG[activeTab].description}
           </motion.p>
@@ -168,4 +163,3 @@ function EcosystemTabs({ useGifs = false }) {
 }
 
 export default EcosystemTabs;
-
