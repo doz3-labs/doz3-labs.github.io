@@ -6,21 +6,6 @@ function DemoPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-blue-100">
       
-      {/* 1. Header with Glass Effect */}
-      <header className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between bg-white/80 backdrop-blur-md border-b border-slate-200/60">
-        <Link 
-          to="/" 
-          className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          Back to Home
-        </Link>
-        <div>
-             <span className="ml-2 text-[10px] uppercase tracking-wider bg-blue-50 text-blue-600 px-2 py-1 rounded-full align-middle border border-blue-100 font-bold">
-               Internal Demo
-             </span>
-        </div>
-      </header>
 
       {/* 2. Main Section with STRONGER Gradient */}
       <main className="flex-1 flex flex-col items-center justify-start pt-12 pb-20 px-4 md:px-8 bg-gradient-to-b from-slate-100 via-white to-white relative overflow-hidden">
