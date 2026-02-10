@@ -39,7 +39,7 @@ function PatientsPage() {
       {/* Collage section (placed before the feature cards) */}
       <CollageBanner
         alt="Patients app collage"
-        imageUrl="https://placehold.co/1600x900?text=Patients+Figma+Collage"
+        imageUrl="/patient.png"
       />
 
       <section className="max-w-5xl mx-auto px-6 pb-20 grid gap-6 md:grid-cols-3">

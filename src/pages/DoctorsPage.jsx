@@ -37,11 +37,13 @@ function DoctorsPage() {
         </p>
       </section>
 
-      {/* Collage section (placed before the feature cards) */}
-      <CollageBanner
-        alt="Doctors app collage"
-        imageUrl="https://placehold.co/1600x900?text=Doctors+Figma+Collage"
-      />
+      {/* Collage section */}
+        <div className="w-full h-[400px] overflow-hidden"> {/* Add your custom size here */}
+          <CollageBanner
+            alt="Doctors app collage"
+            imageUrl="/doctor.png"
+          />
+        </div>
 
       <section className="max-w-5xl mx-auto px-6 pb-20 grid gap-6 md:grid-cols-3">
         {items.map(({ title, description, Icon }) => (
