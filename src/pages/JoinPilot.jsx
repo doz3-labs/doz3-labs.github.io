@@ -126,7 +126,7 @@ function JoinPilotPage() {
             {/* The Image Card */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 rotate-1 hover:rotate-0 transition-transform duration-700 ease-out group">
                <img 
-                 src="/hero.jpg" 
+                 src="/hero2.png" 
                  alt="DOZ3 Product Box" 
                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                />

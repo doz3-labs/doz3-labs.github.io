@@ -35,7 +35,7 @@ function DemoPage() {
               className="w-full h-full object-cover"
               controls 
               playsInline
-              poster="/hero2.jpg" 
+              poster="/hero2.png" 
             >
               <source src="/demo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
