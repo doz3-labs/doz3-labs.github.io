@@ -126,7 +126,7 @@ function DemoPage() {
                     </a>
                   </div>
                   <a
-                    href="https://doz3-labs.github.io/Doz3adminpanel/"
+                    href="https://doz3-labs.github.io/Doz3admindashboard/"
                     target="_blank"
                     rel="noreferrer"
                     className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-2 cursor-pointer hover:bg-slate-100 transition-colors"
