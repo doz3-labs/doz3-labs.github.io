@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 
 function DemoPage() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [unlocked, setUnlocked] = useState(false);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   function handleUnlock(e) {
     e.preventDefault();
@@ -36,18 +37,8 @@ function DemoPage() {
               Take a sneak peek at the live demo
             </h1>
             <p className="text-slate-600 text-lg leading-relaxed font-medium">
-              Watch the closed-loop ecosystem in action, then step into the{" "}
+              Watch the closed loop ecosystem in action, then step into the{" "}
               <span className="text-blue-600">live product</span> itself.
-            </p>
-            <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
-              The interactive demo is{" "}
-              <span className="font-semibold text-slate-800">
-                protected by login &amp; password
-              </span>{" "}
-              across all three apps {" "}
-              <span className="text-blue-600">Doctor&apos;s Dashboard</span>,{" "}
-              <span className="text-blue-600">Patient App</span>, and{" "}
-              <span className="text-blue-600">Admin Panel</span>. Please request access.
             </p>
           </div>
 
@@ -57,7 +48,7 @@ function DemoPage() {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div className="space-y-1">
                   <h2 className="text-base md:text-lg font-semibold text-slate-900">
-                    Live demo (password protected)
+                    Live demo
                   </h2>
                   <p className="text-xs md:text-sm text-slate-500">
                     Enter the shared credentials to reveal the three live demo apps.
@@ -75,13 +66,27 @@ function DemoPage() {
                     placeholder="Login"
                     className="w-full sm:w-40 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400/60"
                   />
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                    className="w-full sm:w-40 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400/60"
-                  />
+                  <div className="relative w-full sm:w-40">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Password"
+                      className="w-full rounded-full border border-slate-300 bg-white pl-4 pr-10 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400/60"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((prev) => !prev)}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-slate-500 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400/60 rounded-full"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="w-4 h-4" />
+                      ) : (
+                        <Eye className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
                   <button
                     type="submit"
                     className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2 text-sm font-medium text-white shadow-md shadow-blue-500/30 hover:bg-blue-700 transition-colors"
@@ -101,8 +106,16 @@ function DemoPage() {
                     href="https://doz3-labs.github.io/Doz3doctordashboard/"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-2 cursor-pointer hover:bg-slate-100 transition-colors"
+                    className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-3 cursor-pointer hover:bg-slate-100 transition-colors overflow-hidden"
                   >
+                    <div className="relative h-64 rounded-xl border border-slate-200 overflow-hidden bg-white">
+                      <img
+                        src="/doc1.png"
+                        alt="Doctor's Dashboard preview"
+                        className="w-full h-full object-cover object-top"
+                      />
+                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-white/90 via-white/20 to-transparent rounded-xl" aria-hidden />
+                    </div>
                     <strong className="block text-slate-900 text-sm font-bold">
                       Doctor&apos;s Dashboard
                     </strong>
@@ -110,27 +123,43 @@ function DemoPage() {
                       Live demo of the prescribing console and safety rails.
                     </p>
                   </a>
-                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-2 cursor-pointer hover:bg-slate-100 transition-colors">
+                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-3 cursor-pointer hover:bg-slate-100 transition-colors overflow-hidden">
                     <a
                       href="https://doz3-labs.github.io/Doz3patientapp/"
                       target="_blank"
                       rel="noreferrer"
-                      className="text-slate-600 text-xs md:text-sm leading-relaxed"
+                      className="flex flex-col gap-3 text-slate-600 text-xs md:text-sm leading-relaxed"
                     >
-                    <strong className="block text-slate-900 text-sm font-bold">
-                      Patient App
-                    </strong>
-                    <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
-                      Live demo of adherence timelines, refills, and reminders.
-                    </p>
+                      <div className="relative h-64 rounded-xl border border-slate-200 overflow-hidden bg-white">
+                        <img
+                          src="/pat1.png"
+                          alt="Patient App preview"
+                          className="w-full h-full object-cover object-top"
+                        />
+                        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-white/90 via-white/20 to-transparent rounded-xl" aria-hidden />
+                      </div>
+                      <strong className="block text-slate-900 text-sm font-bold">
+                        Patient App
+                      </strong>
+                      <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
+                        Live demo of adherence timelines, refills, and reminders.
+                      </p>
                     </a>
                   </div>
                   <a
                     href="https://doz3-labs.github.io/Doz3admindashboard/"
                     target="_blank"
                     rel="noreferrer"
-                    className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-2 cursor-pointer hover:bg-slate-100 transition-colors"
+                    className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-3 cursor-pointer hover:bg-slate-100 transition-colors overflow-hidden"
                   >
+                    <div className="relative h-64 rounded-xl border border-slate-200 overflow-hidden bg-white">
+                      <img
+                        src="/adm1.png"
+                        alt="Admin Panel preview"
+                        className="w-full h-full object-cover object-top"
+                      />
+                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-white/90 via-white/20 to-transparent rounded-xl" aria-hidden />
+                    </div>
                     <strong className="block text-slate-900 text-sm font-bold">
                       Admin Panel
                     </strong>
@@ -141,6 +170,18 @@ function DemoPage() {
             </div>
           </section>
 
+              <div>
+              <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+              The interactive demo is{" "}
+              <span className="font-semibold text-slate-800">
+                protected by login &amp; password
+              </span>{" "}
+              across all three apps {" "}
+              <span className="text-blue-600">Doctor&apos;s Dashboard</span>,{" "}
+              <span className="text-blue-600">Patient App</span>, and{" "}
+              <span className="text-blue-600">Admin Panel</span>. Please request access if you don't have credentials.
+            </p>
+              </div>
           {/* 3. Hero video */}
           <div className="relative aspect-video bg-white rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10 border border-slate-200 group">
             <video
