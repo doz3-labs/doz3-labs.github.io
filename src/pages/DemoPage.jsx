@@ -14,7 +14,7 @@ function DemoPage() {
     const trimmedLogin = login.trim();
     const trimmedPassword = password.trim();
 
-    if (trimmedLogin === "yc-demo" && trimmedPassword === "please-fund-me") {
+    if (trimmedLogin === "demo" && trimmedPassword === "please-fund-me") {
       setUnlocked(true);
       setError("");
     } else {
