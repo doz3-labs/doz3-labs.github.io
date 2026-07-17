@@ -38,11 +38,12 @@ function SafetyPage() {
           <p>
             Every pouch packed through{" "}
             <DozWordmark className="text-xs font-semibold text-doz-blue align-baseline" />{" "}
-            passes through two layers of verification, human pharmacy checks and an
-            AI vision system.
+            is designed to pass two layers of verification: a pharmacist review, and
+            an automated photo check we are building.
           </p>
-          <p>
-            We photograph each pouch before it leaves our hub. The system flags
+          <p className="text-xs text-slate-500">
+            {/* TODO: switch to present tense once the QC photo pipeline ships. */}
+            The plan is to photograph each pouch before it leaves our hub and flag
             missing tablets, colour or shape anomalies, and dose mismatches before
             anything reaches a patient&apos;s home.
           </p>
